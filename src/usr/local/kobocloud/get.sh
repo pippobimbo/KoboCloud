@@ -40,6 +40,8 @@ while read url; do
       `dirname $0`/getpCloudFiles.sh "$url" "$Lib"
     elif echo $url | grep -q '^https*://drive.google.com'; then
       `dirname $0`/getGDriveFiles.sh "$url" "$Lib"
+    elif echo $url | grep -q '^http*://[^/]*quickconnect.to'; then
+      `dirname $0`/getSynoDriveFiles.sh "$url" "$Lib"  
     else
       `dirname $0`/getOwncloudFiles.sh "$url" "$Lib"
     fi
